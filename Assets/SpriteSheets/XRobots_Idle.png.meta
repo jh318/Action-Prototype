@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9b8674ed3e0f865468cda6947eb2ef95
-timeCreated: 1495352446
+timeCreated: 1495361536
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -105,12 +105,12 @@ TextureImporter:
       name: XRobots_Idle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 154
+        y: 111
+        width: 42
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -118,12 +118,12 @@ TextureImporter:
       name: XRobots_Idle_1
       rect:
         serializedVersion: 2
-        x: 150
-        y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 304
+        y: 111
+        width: 42
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -131,12 +131,12 @@ TextureImporter:
       name: XRobots_Idle_2
       rect:
         serializedVersion: 2
-        x: 300
-        y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 453
+        y: 111
+        width: 43
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -144,12 +144,12 @@ TextureImporter:
       name: XRobots_Idle_3
       rect:
         serializedVersion: 2
-        x: 450
-        y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 603
+        y: 111
+        width: 43
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -157,12 +157,12 @@ TextureImporter:
       name: XRobots_Idle_4
       rect:
         serializedVersion: 2
-        x: 600
-        y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 753
+        y: 111
+        width: 43
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -170,12 +170,12 @@ TextureImporter:
       name: XRobots_Idle_5
       rect:
         serializedVersion: 2
-        x: 750
-        y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 903
+        y: 111
+        width: 44
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -183,12 +183,12 @@ TextureImporter:
       name: XRobots_Idle_6
       rect:
         serializedVersion: 2
-        x: 900
-        y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 1053
+        y: 111
+        width: 44
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -196,12 +196,12 @@ TextureImporter:
       name: XRobots_Idle_7
       rect:
         serializedVersion: 2
-        x: 1050
-        y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 1203
+        y: 111
+        width: 44
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -209,12 +209,12 @@ TextureImporter:
       name: XRobots_Idle_8
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 1353
+        y: 111
+        width: 44
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -222,12 +222,12 @@ TextureImporter:
       name: XRobots_Idle_9
       rect:
         serializedVersion: 2
-        x: 1350
-        y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        x: 1503
+        y: 111
+        width: 44
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -235,12 +235,12 @@ TextureImporter:
       name: XRobots_Idle_10
       rect:
         serializedVersion: 2
-        x: 1500
+        x: 1600
         y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 148
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -248,12 +248,12 @@ TextureImporter:
       name: XRobots_Idle_11
       rect:
         serializedVersion: 2
-        x: 1650
+        x: 1750
         y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 148
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -261,12 +261,12 @@ TextureImporter:
       name: XRobots_Idle_12
       rect:
         serializedVersion: 2
-        x: 1800
+        x: 1900
         y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 148
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -274,12 +274,12 @@ TextureImporter:
       name: XRobots_Idle_13
       rect:
         serializedVersion: 2
-        x: 1950
+        x: 2050
         y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 148
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -287,12 +287,12 @@ TextureImporter:
       name: XRobots_Idle_14
       rect:
         serializedVersion: 2
-        x: 2100
+        x: 2200
         y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 148
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -300,12 +300,51 @@ TextureImporter:
       name: XRobots_Idle_15
       rect:
         serializedVersion: 2
-        x: 2250
+        x: 2350
         y: 112
-        width: 147
-        height: 111
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 148
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: XRobots_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 0
+        width: 44
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: XRobots_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 2253
+        y: 0
+        width: 44
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: XRobots_Idle_18
+      rect:
+        serializedVersion: 2
+        x: 2403
+        y: 0
+        width: 44
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
