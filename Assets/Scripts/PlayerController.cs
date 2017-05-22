@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float speed = 3.0f;
+	public float jumpPower = 3.0f;
 
 	private enum state {idle, moving};
 	private Rigidbody2D body;
@@ -27,6 +28,9 @@ public class PlayerController : MonoBehaviour {
 		body.velocity = movement * speed;
 
 		bool isMoving = (Mathf.Abs (moveHorizontal)) > 0;
+		bool isJumping = moveVertical > 0;
+		bool isCrouching = moveVertical < 0;
+		//bool isAir = false;
 
 		animator.SetBool ("isMoving", isMoving);
 		if (isMoving) {
@@ -34,7 +38,12 @@ public class PlayerController : MonoBehaviour {
 			transform.localScale = new Vector3 (1.0f * moveHorizontal, 1.0f, 1.0f);
 		}
 
-
+		if (isJumping) {
+			//body.AddForce (Vector2.up * jumpPower, ForceMode2D.Impulse);
+			Vector3 jumpVelocity = new Vector3(0.0f, 1.0f, 0.0f);
+			body.velocity = jumpVelocity * jumpPower;
+			//isAir = true;
+		}
 
 	}
 
