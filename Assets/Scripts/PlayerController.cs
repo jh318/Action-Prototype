@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour {
 
 		if(state == State.ground) animator.SetBool("isJumping", isJumping);
 		if (isJumping && state == State.ground) {
+			animator.SetTrigger ("isJumpingTrigger");
 			state = State.jumping;
 			//body.AddForce (Vector2.up * jumpPower, ForceMode2D.Impulse);
 			Vector3 jumpVelocity = new Vector3(0.0f, 1.0f, 0.0f);
