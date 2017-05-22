@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour {
 			transform.localScale = new Vector3 (1.0f * moveHorizontal, 1.0f, 1.0f);
 		}
 
+		animator.SetBool("isJumping", isJumping);
 		if (isJumping) {
 			//body.AddForce (Vector2.up * jumpPower, ForceMode2D.Impulse);
 			Vector3 jumpVelocity = new Vector3(0.0f, 1.0f, 0.0f);
