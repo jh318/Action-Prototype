@@ -383,16 +383,21 @@ Prefab:
     - target: {fileID: 114831851496011940, guid: b83eadc8b18a5324784082c6cf2e0b50,
         type: 2}
       propertyPath: speed
-      value: 15
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 50560917078798400, guid: b83eadc8b18a5324784082c6cf2e0b50,
         type: 2}
       propertyPath: m_GravityScale
-      value: 40
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1915173345613646, guid: b83eadc8b18a5324784082c6cf2e0b50, type: 2}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114831851496011940, guid: b83eadc8b18a5324784082c6cf2e0b50,
+        type: 2}
+      propertyPath: jumpForce
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b83eadc8b18a5324784082c6cf2e0b50, type: 2}
