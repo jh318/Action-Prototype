@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+	public enum State {ground, moving, jumping, air,};
+	public State state;
 	public float speed = 3.0f;
 	public float jumpPower = 3.0f;
 
-	private enum state {idle, moving};
+
 	private Rigidbody2D body;
 	private Animator animator;
 	private SpriteRenderer sprite;
@@ -38,14 +40,24 @@ public class PlayerController : MonoBehaviour {
 			transform.localScale = new Vector3 (1.0f * moveHorizontal, 1.0f, 1.0f);
 		}
 
-		animator.SetBool("isJumping", isJumping);
-		if (isJumping) {
+		if(state == State.ground) animator.SetBool("isJumping", isJumping);
+		if (isJumping && state == State.ground) {
+			state = State.jumping;
 			//body.AddForce (Vector2.up * jumpPower, ForceMode2D.Impulse);
 			Vector3 jumpVelocity = new Vector3(0.0f, 1.0f, 0.0f);
 			body.velocity = jumpVelocity * jumpPower;
 			//isAir = true;
 		}
-
 	}
 
+	void OnCollisionEnter2D(Collision2D collision){
+		if (collision.gameObject.tag == "Ground" && state == State.jumping) {
+			state = State.ground;
+		}
+	}
+	void OnCollisionExit2D(Collision2D collision){
+		if (collision.gameObject.tag == "Ground" && state == State.ground) {
+			state = State.air;
+		}
+	}
 }

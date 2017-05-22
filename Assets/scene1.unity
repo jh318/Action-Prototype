@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 147534797}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -323,21 +323,15 @@ Prefab:
       propertyPath: m_Size.y
       value: 0.8642349
       objectReference: {fileID: 0}
-    - target: {fileID: 212424984695056798, guid: b83eadc8b18a5324784082c6cf2e0b50,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300020, guid: 9b8674ed3e0f865468cda6947eb2ef95,
-        type: 3}
     - target: {fileID: 61879011730793864, guid: b83eadc8b18a5324784082c6cf2e0b50,
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.48
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 61879011730793864, guid: b83eadc8b18a5324784082c6cf2e0b50,
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.07
+      value: 1.0999999
       objectReference: {fileID: 0}
     - target: {fileID: 4559274802984844, guid: b83eadc8b18a5324784082c6cf2e0b50, type: 2}
       propertyPath: m_LocalScale.x
@@ -384,7 +378,7 @@ Prefab:
     - target: {fileID: 114831851496011940, guid: b83eadc8b18a5324784082c6cf2e0b50,
         type: 2}
       propertyPath: jumpPower
-      value: 50
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 114831851496011940, guid: b83eadc8b18a5324784082c6cf2e0b50,
         type: 2}
@@ -394,8 +388,18 @@ Prefab:
     - target: {fileID: 50560917078798400, guid: b83eadc8b18a5324784082c6cf2e0b50,
         type: 2}
       propertyPath: m_GravityScale
-      value: 40
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1915173345613646, guid: b83eadc8b18a5324784082c6cf2e0b50, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 212424984695056798, guid: b83eadc8b18a5324784082c6cf2e0b50,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300020, guid: 9b8674ed3e0f865468cda6947eb2ef95,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b83eadc8b18a5324784082c6cf2e0b50, type: 2}
   m_IsPrefabParent: 0
