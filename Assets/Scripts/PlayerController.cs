@@ -42,7 +42,14 @@ public class PlayerController : MonoBehaviour {
 			animator.SetFloat ("moveX", moveHorizontal);
 			transform.localScale = new Vector3 (1.0f * moveHorizontal, 1.0f, 1.0f);
 		}
-
+			
+		if (isMoving && isCrouching) {
+			animator.SetBool ("isCrouching", false);
+		} else if (isCrouching && state == State.ground && !isMoving) {
+			animator.SetBool ("isCrouching", true);
+		} else {
+			animator.SetBool ("isCrouching", isCrouching);
+		}
 
 
 		if (isJumping && state == State.ground) {
