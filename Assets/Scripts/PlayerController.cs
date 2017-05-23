@@ -25,11 +25,10 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate(){
 		Debug.Log (state);
+
 		float moveHorizontal = Input.GetAxisRaw ("Horizontal");
 		float moveVertical = Input.GetAxisRaw ("Vertical");
-
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-		body.velocity = movement * speed;
+		body.velocity = new Vector2(moveHorizontal * speed, body.velocity.y);
 
 		bool isMoving = (Mathf.Abs (moveHorizontal)) > 0;
 		bool isJumping = moveVertical > 0;
@@ -43,6 +42,7 @@ public class PlayerController : MonoBehaviour {
 			transform.localScale = new Vector3 (1.0f * moveHorizontal, 1.0f, 1.0f);
 		}
 			
+		//TODO: This is a mess vvv
 		if (isMoving && isCrouching) {
 			animator.SetBool ("isCrouching", false);
 		} else if (isCrouching && state == State.ground && !isMoving) {
@@ -53,11 +53,12 @@ public class PlayerController : MonoBehaviour {
 
 
 		if (isJumping && state == State.ground) {
+			state = State.air; //Jumping
 			animator.SetBool ("isJumping", true);
 			animator.SetBool ("isAir", true);
-			state = State.jumping;
 			body.AddForce (Vector2.up * jumpForce);
-			Vector3 jumpVelocity = new Vector3(0.0f, 1.0f, 0.0f);
+
+			//Vector3 jumpVelocity = new Vector3(0.0f, 1.0f, 0.0f)*Time.deltaTime;
 			//body.velocity = jumpVelocity * jumpForce * Time.deltaTime;
 			//isAir = true;
 		}
