@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	public enum State {ground, moving, jumping, air,};
+	public enum State {ground, moving, jumping, air, neutral, attack};
 	public State state;
 	public float speed = 3.0f;
 	public float jumpForce = 3.0f;
+	public GameObject basicHitbox;
 
 
 	private Rigidbody2D body;
@@ -18,13 +19,13 @@ public class PlayerController : MonoBehaviour {
 		body = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
 		sprite = GetComponent<SpriteRenderer>();
-		//StartCoroutine ("CheckState");
+		basicHitbox.SetActive (false);
 	}
 
 
 
 	void FixedUpdate(){
-		Debug.Log (state);
+		//Debug.Log (state);
 
 		float moveHorizontal = Input.GetAxisRaw ("Horizontal");
 		float moveVertical = Input.GetAxisRaw ("Vertical");
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour {
 		bool isJumping = moveVertical > 0;
 		animator.SetBool ("isJumping", isJumping);
 		bool isCrouching = moveVertical < 0;
+		bool isAttacking = Input.GetKeyDown (KeyCode.Z);
 		//bool isAir = false;
 
 		animator.SetBool ("isMoving", isMoving);
@@ -57,10 +59,11 @@ public class PlayerController : MonoBehaviour {
 			animator.SetBool ("isJumping", true);
 			animator.SetBool ("isAir", true);
 			body.AddForce (Vector2.up * jumpForce);
-
-			//Vector3 jumpVelocity = new Vector3(0.0f, 1.0f, 0.0f)*Time.deltaTime;
-			//body.velocity = jumpVelocity * jumpForce * Time.deltaTime;
 			//isAir = true;
+		}
+
+		if (isAttacking && state != State.attack) {
+			StartCoroutine ("Attack");
 		}
 	}
 
@@ -86,5 +89,18 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log (state);
 			yield return new WaitForSeconds (2);
 		}
+	}
+
+	IEnumerator Attack(){
+		state = State.attack;
+		animator.SetBool("isAttacking", true);
+		yield return new WaitForSeconds (0.05f);
+		basicHitbox.SetActive (true);
+		yield return new WaitForSeconds(0.20f);
+		basicHitbox.SetActive (false);
+		yield return new WaitForSeconds(0.20f);
+		animator.SetBool("isAttacking", false);
+		state = State.ground;
+		//state = State.neutral;
 	}
 }
