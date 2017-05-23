@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	public enum State {ground, moving, jumping, air, neutral, attack};
+	public enum State {ground, moving, jumping, air, neutral, attack}; //TODO Need to have access to multiple states simultaneously
 	public State state;
 	public float speed = 3.0f;
 	public float jumpForce = 3.0f;
@@ -25,7 +25,10 @@ public class PlayerController : MonoBehaviour {
 		//Debug.Log (state);
 		float moveHorizontal = Input.GetAxisRaw ("Horizontal");
 		float moveVertical = Input.GetAxisRaw ("Vertical");
-		if(state != State.attack) body.velocity = new Vector2(moveHorizontal * speed, body.velocity.y);
+		body.velocity = new Vector2(moveHorizontal * speed, body.velocity.y);
+		if (state == State.attack)
+			body.velocity = new Vector2 (0, 0);
+		//if (state == State.attack && inAir);
 
 		bool isMoving = (Mathf.Abs (moveHorizontal)) > 0;
 		bool isJumping = moveVertical > 0;
