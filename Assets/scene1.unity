@@ -423,12 +423,12 @@ Prefab:
     - target: {fileID: 61879011730793864, guid: b83eadc8b18a5324784082c6cf2e0b50,
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.48
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 61879011730793864, guid: b83eadc8b18a5324784082c6cf2e0b50,
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.07
+      value: 1.0999999
       objectReference: {fileID: 0}
     - target: {fileID: 4559274802984844, guid: b83eadc8b18a5324784082c6cf2e0b50, type: 2}
       propertyPath: m_LocalScale.x
@@ -496,12 +496,6 @@ Prefab:
       propertyPath: jumpForce
       value: 400
       objectReference: {fileID: 0}
-    - target: {fileID: 212424984695056798, guid: b83eadc8b18a5324784082c6cf2e0b50,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300020, guid: 9b8674ed3e0f865468cda6947eb2ef95,
-        type: 3}
     - target: {fileID: 114831851496011940, guid: b83eadc8b18a5324784082c6cf2e0b50,
         type: 2}
       propertyPath: basicHitbox
@@ -748,7 +742,7 @@ GameObject:
   - component: {fileID: 1495058882}
   - component: {fileID: 1495058881}
   m_Layer: 0
-  m_Name: AttackHitBox
+  m_Name: BasicHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

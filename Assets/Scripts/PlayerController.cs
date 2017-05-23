@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour {
 	public float jumpForce = 3.0f;
 	public GameObject basicHitbox;
 
-
 	private Rigidbody2D body;
 	private Animator animator;
 	private SpriteRenderer sprite;
@@ -22,14 +21,11 @@ public class PlayerController : MonoBehaviour {
 		basicHitbox.SetActive (false);
 	}
 
-
-
 	void FixedUpdate(){
 		//Debug.Log (state);
-
 		float moveHorizontal = Input.GetAxisRaw ("Horizontal");
 		float moveVertical = Input.GetAxisRaw ("Vertical");
-		body.velocity = new Vector2(moveHorizontal * speed, body.velocity.y);
+		if(state != State.attack) body.velocity = new Vector2(moveHorizontal * speed, body.velocity.y);
 
 		bool isMoving = (Mathf.Abs (moveHorizontal)) > 0;
 		bool isJumping = moveVertical > 0;
