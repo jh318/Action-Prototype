@@ -14,6 +14,22 @@ public class PlayerController : MonoBehaviour {
 	private Animator animator;
 	private SpriteRenderer sprite;
 
+	//Inputs
+	public float Horizontal{
+		get { return horizontal; } 
+	}
+	public float Vertical{
+		get { return vertical; }
+	}
+
+	float horizontal;
+	float vertical;
+	bool isMoving;
+	bool isJumping;
+	bool isCrouching;
+	bool isAttacking;
+
+
 	void Start(){
 		body = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
@@ -23,24 +39,24 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate(){
 		//Debug.Log (state);
-		float moveHorizontal = Input.GetAxisRaw ("Horizontal");
-		float moveVertical = Input.GetAxisRaw ("Vertical");
-		body.velocity = new Vector2(moveHorizontal * speed, body.velocity.y);
+		horizontal = Input.GetAxisRaw ("Horizontal");
+		vertical = Input.GetAxisRaw ("Vertical");
+		body.velocity = new Vector2(horizontal * speed, body.velocity.y);
 		if (state == State.attack)
 			body.velocity = new Vector2 (0, 0);
 		//if (state == State.attack && inAir);
 
-		bool isMoving = (Mathf.Abs (moveHorizontal)) > 0;
-		bool isJumping = moveVertical > 0;
+		isMoving = (Mathf.Abs (horizontal)) > 0;
+		isJumping = vertical > 0;
 		animator.SetBool ("isJumping", isJumping);
-		bool isCrouching = moveVertical < 0;
-		bool isAttacking = Input.GetKeyDown (KeyCode.Z);
+		isCrouching = vertical < 0;
+		isAttacking = Input.GetKeyDown (KeyCode.Z);
 		//bool isAir = false;
 
 		animator.SetBool ("isMoving", isMoving);
 		if (isMoving) {
-			animator.SetFloat ("moveX", moveHorizontal);
-			transform.localScale = new Vector3 (1.0f * moveHorizontal, 1.0f, 1.0f);
+			animator.SetFloat ("moveX", horizontal);
+			transform.localScale = new Vector3 (1.0f * horizontal, 1.0f, 1.0f);
 		}
 			
 		//TODO: This is a mess vvv
