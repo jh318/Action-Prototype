@@ -55,11 +55,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4559274802984844}
+  - component: {fileID: 95471015844489018}
   - component: {fileID: 212424984695056798}
   - component: {fileID: 61879011730793864}
   - component: {fileID: 50560917078798400}
   - component: {fileID: 114831851496011940}
-  - component: {fileID: 95471015844489018}
   m_Layer: 0
   m_Name: Fiora
   m_TagString: Player
