@@ -14,20 +14,35 @@ public class PlayerController : MonoBehaviour {
 	private Animator animator;
 	private SpriteRenderer sprite;
 
-	//Inputs
+
+	//States
+	bool isMoving;
+	bool isJumping;
+	bool isCrouching;
+	bool isAttacking;
+	//DirectionInputs
+	float horizontal;
+	float vertical;
+	//Buttons
+	bool zButton;
+	bool xButton;
+	bool cButton;
+	//GetButtons&Inputs
+	public bool z{
+		get{ return zButton;}
+	}
+	public bool x{
+		get { return xButton; } 
+	}
+	public bool c{
+		get{ return cButton;}
+	}
 	public float Horizontal{
 		get { return horizontal; } 
 	}
 	public float Vertical{
 		get { return vertical; }
 	}
-
-	float horizontal;
-	float vertical;
-	bool isMoving;
-	bool isJumping;
-	bool isCrouching;
-	bool isAttacking;
 
 
 	void Start(){
@@ -38,28 +53,32 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		//Debug.Log (state);
+		//Assign Inputs
+		zButton = Input.GetKeyDown (KeyCode.Z);
+		xButton = Input.GetKeyDown (KeyCode.X);
+		cButton = Input.GetKeyDown (KeyCode.C);
 		horizontal = Input.GetAxisRaw ("Horizontal");
 		vertical = Input.GetAxisRaw ("Vertical");
+
+		//Set Movement & States
 		body.velocity = new Vector2(horizontal * speed, body.velocity.y);
 		if (state == State.attack)
 			body.velocity = new Vector2 (0, 0);
-		//if (state == State.attack && inAir);
 
 		isMoving = (Mathf.Abs (horizontal)) > 0;
 		isJumping = vertical > 0;
 		animator.SetBool ("isJumping", isJumping);
 		isCrouching = vertical < 0;
-		isAttacking = Input.GetKeyDown (KeyCode.Z);
-		//bool isAir = false;
+		isAttacking = zButton;
 
+		//Set Action
 		animator.SetBool ("isMoving", isMoving);
 		if (isMoving) {
 			animator.SetFloat ("moveX", horizontal);
 			transform.localScale = new Vector3 (1.0f * horizontal, 1.0f, 1.0f);
 		}
 			
-		//TODO: This is a mess vvv
+		//TODO: This is a mess vvv (but it works)
 		if (isMoving && isCrouching) {
 			animator.SetBool ("isCrouching", false);
 		} else if (isCrouching && state == State.ground && !isMoving) {
@@ -98,7 +117,8 @@ public class PlayerController : MonoBehaviour {
 			animator.SetBool ("isJumping", false);
 		}
 	}
-
+		
+	//Functions
 	IEnumerator CheckState(){
 		while (enabled) {
 			Debug.Log (state);

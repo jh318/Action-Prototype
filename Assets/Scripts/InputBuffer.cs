@@ -11,8 +11,9 @@ public class InputBuffer : MonoBehaviour {
 	private List<float> inputTime = new List<float> ();
 	private PlayerController playerInput;
 	private enum Direction{DB, D, DF, B, N, F, UB, U, UF};
-	private enum Button{z, x, c};
+	private enum Button{z, x, c, None};
 	Direction direction;
+	Button button;
 
 
 	void Start(){
@@ -22,8 +23,9 @@ public class InputBuffer : MonoBehaviour {
 		
 	void Update () {
 		GetDirectionInput ();
+		GetButtonInput ();
+		ButtonParse ();
 		DirectionParse ();
-		DisplayLastInput ();
 
 	}
 
@@ -42,8 +44,8 @@ public class InputBuffer : MonoBehaviour {
 			direction = Direction.DF;
 		if (playerInput.Horizontal < 0 && playerInput.Vertical == 0) //4
 			direction = Direction.B;
-		//if(playerInput.Horizontal == 0 && playerInput.Vertical == 0) //5
-		//direction = Direction.N;
+		if(playerInput.Horizontal == 0 && playerInput.Vertical == 0) //5
+			direction = Direction.N;
 		if (playerInput.Horizontal > 0 && playerInput.Vertical == 0) //6
 			direction = Direction.F;
 		if (playerInput.Horizontal < 0 && playerInput.Vertical > 0) //7
@@ -54,35 +56,80 @@ public class InputBuffer : MonoBehaviour {
 			direction = Direction.UF;
 	}
 
+	void GetButtonInput(){
+		button = Button.None;
+		if (playerInput.z)
+			button = Button.z;
+		if (playerInput.x)
+			button = Button.x;
+		if (playerInput.c)
+			button = Button.c;
+	}
+		
+	void ButtonParse(){
+		switch (button) {
+			case Button.z:
+				inputBuffer.Add ("_z");
+				inputTime.Add (Time.time);
+				break;
+			case Button.x:
+				inputBuffer.Add ("_x");
+				inputTime.Add (Time.time);
+				break;
+			case Button.c:
+				inputBuffer.Add ("_c");
+				inputTime.Add (Time.time);
+				break;
+			case Button.None:
+				//Do nothing
+				break;
+			default:
+				//do nothing for now
+				break;
+		}
+		DisplayLastInput ();
+	}
+
 	void DirectionParse(){
 		switch (direction) {
 			case Direction.DB:
-			inputBuffer.Add ("_db"); 
+			inputBuffer.Add ("_db");
+			inputTime.Add (Time.time);
 				break;
 			case Direction.D:
 			inputBuffer.Add ("_d");
+			inputTime.Add (Time.time);
 				break;
 			case Direction.DF:
 			inputBuffer.Add ("_df");
+			inputTime.Add (Time.time);
 				break;
 			case Direction.B:
 			inputBuffer.Add("_b");
+			inputTime.Add (Time.time);
 				break;
 			case Direction.N:
 			//do nothing
 				break;
 			case Direction.F:
 			inputBuffer.Add ("_f");
+			inputTime.Add (Time.time);
 				break;
 			case Direction.UB:
 			inputBuffer.Add ("_ub");
+			inputTime.Add (Time.time);
 				break;
 			case Direction.U:
 			inputBuffer.Add ("_u");
+			inputTime.Add (Time.time);
 				break;
 			case Direction.UF:
 			inputBuffer.Add("_uf");
+			inputTime.Add (Time.time);
 				break;
+		}
+		if (direction != Direction.N) {
+			DisplayLastInput ();
 		}
 	}
 
@@ -105,4 +152,13 @@ public class InputBuffer : MonoBehaviour {
 		}
 	}
 
+	IEnumerator DisplayInputBufferCoroutine(){
+		while (enabled) {
+			for (int i = 0; i < inputBuffer.Count; ++i) {
+				inputBufferDisplay.text += inputBuffer[i];
+			}
+			yield return new WaitForSeconds (1.0f);
+		}
+	}
+		
 }
