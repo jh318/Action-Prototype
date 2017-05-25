@@ -28,6 +28,7 @@ public class CommandList : MonoBehaviour {
 		Debug.Log (commandString);
 		if(commandString.Contains("236a")){
 			Debug.Log("HADOUKEN!!!");
+			inputBufferComponent.FlushBuffer ();
 		}
 		commandString = "";
 	}
