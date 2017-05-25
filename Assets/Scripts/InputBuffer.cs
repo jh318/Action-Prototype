@@ -7,62 +7,28 @@ public class InputBuffer : MonoBehaviour {
 
 	public Text inputBufferDisplay;
 
-	private string inputBuffer;
+	private List<string> inputBuffer = new List<string>();
+	private List<float> inputTime = new List<float> ();
 	private PlayerController playerInput;
 	private enum Direction{DB, D, DF, B, N, F, UB, U, UF};
 	private enum Button{z, x, c};
 	Direction direction;
 
+
 	void Start(){
 		playerInput = GetComponent<PlayerController> ();
+		inputBufferDisplay.text = "";
 	}
 		
 	void Update () {
 		GetDirectionInput ();
 		DirectionParse ();
-		SnakeCheck ();
-			
-		if (inputBuffer.Length > 10) {
-			inputBuffer = inputBuffer.Remove (0, 1);
-		}
-		SnakeCheck ();
-		inputBufferDisplay.text = inputBuffer;
+		DisplayLastInput ();
+
 	}
 
 	void CommandInputParse(string name, string directions, float time){
 		
-	}
-
-	void DirectionParse(){
-		switch (direction) {
-			case Direction.DB:
-			inputBuffer += "_db";
-				break;
-			case Direction.D:
-			inputBuffer += "_d";
-				break;
-			case Direction.DF:
-			inputBuffer += "_df";
-				break;
-			case Direction.B:
-			inputBuffer += "_b";
-				break;
-			case Direction.N:
-			//do nothing
-				break;
-			case Direction.F:
-			inputBuffer += "_f";
-				break;
-			case Direction.UB:
-			inputBuffer += "_ub";
-				break;
-			case Direction.U:
-			inputBuffer += "_u";
-				break;
-			case Direction.UF:
-			inputBuffer += "_uf";
-				break;
-		}
 	}
 
 	void GetDirectionInput(){
@@ -77,7 +43,7 @@ public class InputBuffer : MonoBehaviour {
 		if (playerInput.Horizontal < 0 && playerInput.Vertical == 0) //4
 			direction = Direction.B;
 		//if(playerInput.Horizontal == 0 && playerInput.Vertical == 0) //5
-			//direction = Direction.N;
+		//direction = Direction.N;
 		if (playerInput.Horizontal > 0 && playerInput.Vertical == 0) //6
 			direction = Direction.F;
 		if (playerInput.Horizontal < 0 && playerInput.Vertical > 0) //7
@@ -88,10 +54,55 @@ public class InputBuffer : MonoBehaviour {
 			direction = Direction.UF;
 	}
 
-	void SnakeCheck(){
-		if (inputBuffer.Substring (0, 0) == "_") {
-			//string header = inputBuffer.Substring(0,1);
-			inputBuffer.Remove (0, 0);
+	void DirectionParse(){
+		switch (direction) {
+			case Direction.DB:
+			inputBuffer.Add ("_db"); 
+				break;
+			case Direction.D:
+			inputBuffer.Add ("_d");
+				break;
+			case Direction.DF:
+			inputBuffer.Add ("_df");
+				break;
+			case Direction.B:
+			inputBuffer.Add("_b");
+				break;
+			case Direction.N:
+			//do nothing
+				break;
+			case Direction.F:
+			inputBuffer.Add ("_f");
+				break;
+			case Direction.UB:
+			inputBuffer.Add ("_ub");
+				break;
+			case Direction.U:
+			inputBuffer.Add ("_u");
+				break;
+			case Direction.UF:
+			inputBuffer.Add("_uf");
+				break;
 		}
 	}
+
+	void DisplayLastInput(){
+		if (Input.anyKeyDown && inputBuffer.Count > 0) {
+			inputBufferDisplay.text += inputBuffer [inputBuffer.Count-1];
+		}
+		if (inputBufferDisplay.text.Length > 25) {
+			inputBufferDisplay.text = inputBufferDisplay.text.Remove (0, 10);
+		}
+	}
+
+	void DisplayCurrentInputBufferAndRemoveHead(){
+		if (inputBuffer.Count > 10) {
+			inputBuffer.RemoveAt (0);
+		}
+
+		for (int i = 0; i < inputBuffer.Count; ++i) {
+			inputBufferDisplay.text += inputBuffer[i];
+		}
+	}
+
 }
