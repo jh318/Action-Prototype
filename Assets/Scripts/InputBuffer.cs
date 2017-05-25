@@ -6,6 +6,12 @@ using UnityEngine.UI;
 public class InputBuffer : MonoBehaviour {
 
 	public Text inputBufferDisplay;
+	public List<string> inputB{
+		get{return inputBuffer; }
+	}
+	public List<float> inputT{
+		get { return inputTime; }
+	}
 
 	private List<string> inputBuffer = new List<string>();
 	private List<float> inputTime = new List<float> ();
@@ -16,18 +22,20 @@ public class InputBuffer : MonoBehaviour {
 	Button button;
 
 
+
 	void Start(){
 		playerInput = GetComponent<PlayerController> ();
 		inputBufferDisplay.text = "";
+		//StartCoroutine (FlushBufferTimed(5));
 	}
 		
 	void Update () {
 		GetDirectionInput ();
 		GetButtonInput ();
-
 		DirectionParse ();
 		ButtonParse ();
 
+		FlushOldInputs (10); //Clear list head if greater than some# of elements
 	}
 
 	void CommandInputParse(string name, string directions, float time){
@@ -35,8 +43,6 @@ public class InputBuffer : MonoBehaviour {
 	}
 
 	void GetDirectionInput(){
-		if (playerInput.Horizontal == 0 && playerInput.Vertical == 0) //5
-			direction = Direction.N;
 		if (playerInput.Horizontal < 0 && playerInput.Vertical < 0) //1
 			direction = Direction.DB;
 		if (playerInput.Horizontal == 0 && playerInput.Vertical < 0) //2
@@ -59,9 +65,9 @@ public class InputBuffer : MonoBehaviour {
 
 	void GetButtonInput(){
 		button = Button.None;
-		if (playerInput.z)
+		if (playerInput.a)
 			button = Button.a;
-		if (playerInput.x)
+		if (playerInput.b)
 			button = Button.b;
 		if (playerInput.c)
 			button = Button.c;
@@ -161,6 +167,22 @@ public class InputBuffer : MonoBehaviour {
 				inputBufferDisplay.text += inputBuffer[i];
 			}
 			yield return new WaitForSeconds (1.0f);
+		}
+	}
+
+	void FlushBuffer(){
+		inputBuffer.Clear();
+	}
+
+	void FlushOldInputs(int inputNumber){
+		if (inputBuffer.Count > inputNumber)
+			inputBuffer.RemoveAt(0);
+	}
+
+	IEnumerator FlushBufferTimed(float time){
+		while (enabled) {
+			yield return new WaitForSeconds (time);
+			inputBuffer.Clear ();
 		}
 	}
 		

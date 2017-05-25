@@ -28,10 +28,10 @@ public class PlayerController : MonoBehaviour {
 	bool bButton;
 	bool cButton;
 	//GetButtons&Inputs
-	public bool z{
+	public bool a{
 		get{ return aButton;}
 	}
-	public bool x{
+	public bool b{
 		get { return bButton; } 
 	}
 	public bool c{
