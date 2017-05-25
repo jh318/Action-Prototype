@@ -151,16 +151,6 @@ public class InputBuffer : MonoBehaviour {
 		}
 	}
 
-	void DisplayCurrentInputBufferAndRemoveHead(){
-		if (inputBuffer.Count > 10) {
-			inputBuffer.RemoveAt (0);
-		}
-
-		for (int i = 0; i < inputBuffer.Count; ++i) {
-			inputBufferDisplay.text += inputBuffer[i];
-		}
-	}
-
 	IEnumerator DisplayInputBufferCoroutine(){
 		while (enabled) {
 			for (int i = 0; i < inputBuffer.Count; ++i) {

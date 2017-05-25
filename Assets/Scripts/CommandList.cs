@@ -18,7 +18,6 @@ public class CommandList : MonoBehaviour {
 	void Start(){
 		playerInput = GetComponent<PlayerController> ();
 		inputBufferComponent = GetComponent<InputBuffer> ();
-
 	}
 
 	void Update(){
