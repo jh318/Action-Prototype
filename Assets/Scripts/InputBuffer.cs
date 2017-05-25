@@ -11,7 +11,7 @@ public class InputBuffer : MonoBehaviour {
 	private List<float> inputTime = new List<float> ();
 	private PlayerController playerInput;
 	private enum Direction{DB, D, DF, B, N, F, UB, U, UF};
-	private enum Button{z, x, c, None};
+	private enum Button{a, b, c, None};
 	Direction direction;
 	Button button;
 
@@ -24,8 +24,9 @@ public class InputBuffer : MonoBehaviour {
 	void Update () {
 		GetDirectionInput ();
 		GetButtonInput ();
-		ButtonParse ();
+
 		DirectionParse ();
+		ButtonParse ();
 
 	}
 
@@ -59,25 +60,25 @@ public class InputBuffer : MonoBehaviour {
 	void GetButtonInput(){
 		button = Button.None;
 		if (playerInput.z)
-			button = Button.z;
+			button = Button.a;
 		if (playerInput.x)
-			button = Button.x;
+			button = Button.b;
 		if (playerInput.c)
 			button = Button.c;
 	}
 		
 	void ButtonParse(){
 		switch (button) {
-			case Button.z:
-				inputBuffer.Add ("_z");
+			case Button.a:
+				inputBuffer.Add ("a");
 				inputTime.Add (Time.time);
 				break;
-			case Button.x:
-				inputBuffer.Add ("_x");
+			case Button.b:
+				inputBuffer.Add ("b");
 				inputTime.Add (Time.time);
 				break;
 			case Button.c:
-				inputBuffer.Add ("_c");
+				inputBuffer.Add ("c");
 				inputTime.Add (Time.time);
 				break;
 			case Button.None:
@@ -95,38 +96,38 @@ public class InputBuffer : MonoBehaviour {
 	void DirectionParse(){
 		switch (direction) {
 			case Direction.DB:
-			inputBuffer.Add ("_db");
+			inputBuffer.Add ("1");
 			inputTime.Add (Time.time);
 				break;
 			case Direction.D:
-			inputBuffer.Add ("_d");
+			inputBuffer.Add ("2");
 			inputTime.Add (Time.time);
 				break;
 			case Direction.DF:
-			inputBuffer.Add ("_df");
+			inputBuffer.Add ("3");
 			inputTime.Add (Time.time);
 				break;
 			case Direction.B:
-			inputBuffer.Add("_b");
+			inputBuffer.Add("4");
 			inputTime.Add (Time.time);
 				break;
 			case Direction.N:
 			//do nothing
 				break;
 			case Direction.F:
-			inputBuffer.Add ("_f");
+			inputBuffer.Add ("6");
 			inputTime.Add (Time.time);
 				break;
 			case Direction.UB:
-			inputBuffer.Add ("_ub");
+			inputBuffer.Add ("7");
 			inputTime.Add (Time.time);
 				break;
 			case Direction.U:
-			inputBuffer.Add ("_u");
+			inputBuffer.Add ("8");
 			inputTime.Add (Time.time);
 				break;
 			case Direction.UF:
-			inputBuffer.Add("_uf");
+			inputBuffer.Add("9");
 			inputTime.Add (Time.time);
 				break;
 		}

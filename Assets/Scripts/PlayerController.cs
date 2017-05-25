@@ -24,15 +24,15 @@ public class PlayerController : MonoBehaviour {
 	float horizontal;
 	float vertical;
 	//Buttons
-	bool zButton;
-	bool xButton;
+	bool aButton;
+	bool bButton;
 	bool cButton;
 	//GetButtons&Inputs
 	public bool z{
-		get{ return zButton;}
+		get{ return aButton;}
 	}
 	public bool x{
-		get { return xButton; } 
+		get { return bButton; } 
 	}
 	public bool c{
 		get{ return cButton;}
@@ -54,8 +54,8 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate(){
 		//Assign Inputs
-		zButton = Input.GetKeyDown (KeyCode.Z);
-		xButton = Input.GetKeyDown (KeyCode.X);
+		aButton = Input.GetKeyDown (KeyCode.Z);
+		bButton = Input.GetKeyDown (KeyCode.X);
 		cButton = Input.GetKeyDown (KeyCode.C);
 		horizontal = Input.GetAxisRaw ("Horizontal");
 		vertical = Input.GetAxisRaw ("Vertical");
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour {
 		isJumping = vertical > 0;
 		animator.SetBool ("isJumping", isJumping);
 		isCrouching = vertical < 0;
-		isAttacking = zButton;
+		isAttacking = aButton;
 
 		//Set Action
 		animator.SetBool ("isMoving", isMoving);
