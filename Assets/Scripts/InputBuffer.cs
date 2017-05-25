@@ -87,7 +87,9 @@ public class InputBuffer : MonoBehaviour {
 				//do nothing for now
 				break;
 		}
-		DisplayLastInput ();
+
+		if(button != Button.None)
+			DisplayLastInput ();
 	}
 
 	void DirectionParse(){
@@ -128,9 +130,9 @@ public class InputBuffer : MonoBehaviour {
 			inputTime.Add (Time.time);
 				break;
 		}
-		if (direction != Direction.N) {
-			DisplayLastInput ();
-		}
+
+		if (direction != Direction.N) 
+			DisplayLastInput ();	
 	}
 
 	void DisplayLastInput(){
