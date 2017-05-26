@@ -190,7 +190,7 @@ public class InputBuffer : MonoBehaviour {
 	}
 
 	void DisplayLastInput(){
-		if (Input.anyKeyDown && inputBuffer.Count > 0) {
+		if ((Input.anyKeyDown || direction != Direction.N) && inputBuffer.Count > 0) {
 			inputBufferDisplay.text += inputBuffer [inputBuffer.Count-1];
 		}
 		if (inputBufferDisplay.text.Length > 25) {

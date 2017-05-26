@@ -54,9 +54,9 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate(){
 		//Assign Inputs
-		aButton = Input.GetKeyDown (KeyCode.Z);
-		bButton = Input.GetKeyDown (KeyCode.X);
-		cButton = Input.GetKeyDown (KeyCode.C);
+		aButton = (Input.GetKeyDown (KeyCode.Z) || Input.GetButtonDown ("ButtonA"));
+		bButton = (Input.GetKeyDown (KeyCode.X) || Input.GetButtonDown ("ButtonB"));
+		cButton = (Input.GetKeyDown (KeyCode.C) || Input.GetButtonDown ("ButtonC"));
 		horizontal = Input.GetAxisRaw ("Horizontal");
 		vertical = Input.GetAxisRaw ("Vertical");
 
@@ -75,7 +75,14 @@ public class PlayerController : MonoBehaviour {
 		animator.SetBool ("isMoving", isMoving);
 		if (isMoving) {
 			animator.SetFloat ("moveX", horizontal);
-			transform.localScale = new Vector3 (1.0f * horizontal, 1.0f, 1.0f);
+			if (horizontal > 0)
+				transform.localScale = new Vector3 (1.0f, 1.0f, 1.0f);
+			else if (horizontal < 0)
+				transform.localScale = new Vector3 (-1.0f, 1.0f, 1.0f);
+			else
+				transform.localScale = transform.localScale;
+			
+			
 		}
 			
 		//TODO: This is a mess vvv (but it works)
