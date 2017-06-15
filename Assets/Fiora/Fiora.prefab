@@ -60,6 +60,9 @@ GameObject:
   - component: {fileID: 61879011730793864}
   - component: {fileID: 50560917078798400}
   - component: {fileID: 114831851496011940}
+  - component: {fileID: 114651152591311380}
+  - component: {fileID: 114443324757265024}
+  - component: {fileID: 114524929380714824}
   m_Layer: 0
   m_Name: Fiora
   m_TagString: Player
@@ -277,6 +280,41 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114443324757265024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915173345613646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d96c211a8b1bc44f8e0091e9e57f17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114524929380714824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915173345613646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0618352e5ca709042adc9da93057b954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationList: []
+--- !u!114 &114651152591311380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915173345613646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06a8647f71e92844c8c2bc5abb5c3708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputBufferDisplay: {fileID: 0}
 --- !u!114 &114831851496011940
 MonoBehaviour:
   m_ObjectHideFlags: 1

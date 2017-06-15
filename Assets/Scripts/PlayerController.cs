@@ -62,8 +62,8 @@ public class PlayerController : MonoBehaviour {
 
 		//Set Movement & States
 		body.velocity = new Vector2(horizontal * speed, body.velocity.y);
-		if (state == State.attack)
-			body.velocity = new Vector2 (0, 0);
+		//if (state == State.attack)
+		//	body.velocity = new Vector2 (0, 0);
 
 		isMoving = (Mathf.Abs (horizontal)) > 0;
 		isJumping = vertical > 0;
