@@ -302,7 +302,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0618352e5ca709042adc9da93057b954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationList: []
+  animationList:
+  - {fileID: 7400000, guid: a18b74023964be2449a428e81edeffde, type: 2}
+  - {fileID: 7400000, guid: 32816473fe807934889be910af96f2ca, type: 2}
+  - {fileID: 7400000, guid: 32ff9d54b1a812a4d9cfee2890a9bfbc, type: 2}
 --- !u!114 &114651152591311380
 MonoBehaviour:
   m_ObjectHideFlags: 1

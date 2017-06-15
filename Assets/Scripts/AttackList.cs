@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackList : MonoBehaviour {
 
 	public List<AnimationClip> animationList = new List<AnimationClip>();
-	public Animator anim;
+	Animator anim;
 
 	public class Attack
 	{
