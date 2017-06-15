@@ -25,7 +25,7 @@ public class CommandList : MonoBehaviour {
 		List<float> commandInputTime = inputBufferComponent.inputT;
 		for(int i = 0; i < commandInput.Count; ++i)
 			commandString += commandInput[i].ToString();
-		Debug.Log (commandString);
+		//Debug.Log (commandString);
 		if(commandString.Contains("236a")){
 			Debug.Log("HADOUKEN!!!");
 			inputBufferComponent.FlushBuffer ();
