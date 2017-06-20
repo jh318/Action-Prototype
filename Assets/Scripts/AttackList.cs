@@ -28,20 +28,30 @@ public class AttackList : MonoBehaviour {
 
 	void Start(){
 		anim = GetComponent<Animator> ();
-
-		Attack attackNeutralA = new Attack (0.05f, 0.20f, 0.20f, "Fiora_AttackA");
-		Attack attackNeutralB = new Attack (0.08f, 0.25f, 0.3f, "Fiora_AttackB");
-		Attack attackNeutralC = new Attack (0.1f, 0.3f, 0.4f, "Fiora_AttackC");
-
 	}
-		
-	public IEnumerator normalAtttack(Attack attack){
+
+	public IEnumerator NormalAttack(Attack attack) {
 		anim.Play (attack.animName);
 		yield return new WaitForSeconds (attack.startUp);
-		attack.hitBox.gameObject.SetActive (true);
+		// attack.hitBox.gameObject.SetActive (true);
 		yield return new WaitForSeconds(attack.active);
-		attack.hitBox.gameObject.SetActive (false);
+		// attack.hitBox.gameObject.SetActive (false);
 		yield return new WaitForSeconds(attack.recovery);
+	}
+
+	public IEnumerator NormalAttackA () {
+		Attack attackNeutralA = new Attack (0.05f, 0.20f, 0.20f, "Fiora_AttackA");
+		yield return StartCoroutine("NormalAttack", attackNeutralA);
+	}
+
+	public IEnumerator NormalAttackB () {
+		Attack attackNeutralB = new Attack (0.08f, 0.25f, 0.3f, "Fiora_AttackB");
+		yield return StartCoroutine("NormalAttack", attackNeutralB);
+	}
+
+	public IEnumerator NormalAttackC () {
+		Attack attackNeutralC = new Attack (0.1f, 0.3f, 0.4f, "Fiora_AttackC");
+		yield return StartCoroutine("NormalAttack", attackNeutralC);
 	}
 
 }

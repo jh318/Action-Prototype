@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackQueue : MonoBehaviour {
 
-	Queue<string> attackQueue;
+	Queue<string> attackQueue = new Queue<string>();
 	string currentAttack;
 	AttackList attackList;
 	InputBuffer inputBuffer;
@@ -15,7 +15,7 @@ public class AttackQueue : MonoBehaviour {
 		while(enabled){
 			if (attackQueue.Count > 0) {
 				currentAttack = attackQueue.Dequeue();
-				yield return StartCoroutine ("currentAttack");
+				yield return attackList.StartCoroutine (currentAttack);
 			} 
 			else {
 				yield return new WaitForEndOfFrame ();	
@@ -24,22 +24,23 @@ public class AttackQueue : MonoBehaviour {
 	}
 
 	void Start(){
-		attackList.GetComponent<AttackList>();
-		inputBuffer.GetComponent<InputBuffer>();
+		attackList = GetComponent<AttackList>();
+		inputBuffer = GetComponent<InputBuffer>();
 		
 		StartCoroutine("AttackQueueCoroutine");
 	}
 
 	void Update(){
+		if (inputBuffer.inputB.Count == 0) return;
 		string anInput = inputBuffer.inputB[inputBuffer.inputB.Count-1];
-		if(anInput == "A"){
-			attackQueue.Enqueue("normalAttackA");
+		if(anInput == "a"){
+			attackQueue.Enqueue("NormalAttackA");
 		}
-		if(anInput == "B"){
-			attackQueue.Enqueue("normalAttackB");
+		if(anInput == "b"){
+			attackQueue.Enqueue("NormalAttackB");
 		}
-		if(anInput == "C"){
-			attackQueue.Enqueue("normalAttackC");
+		if(anInput == "c"){
+			attackQueue.Enqueue("NormalAttackC");
 		}
 	}
 

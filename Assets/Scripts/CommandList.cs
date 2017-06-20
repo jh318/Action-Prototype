@@ -12,7 +12,7 @@ public class CommandList : MonoBehaviour {
 
 	private PlayerController playerInput;
 	private InputBuffer inputBufferComponent;
-	string commandString;
+	string commandString = "";
 
 
 	void Start(){
